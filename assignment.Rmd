@@ -1,0 +1,82 @@
+
+---
+title: "Reproducible Research Assignment"
+author: "Your Name"
+date: "2026-10-11"
+output: html_document
+---
+
+# 1. Introduction
+
+This report demonstrates a reproducible data analysis in R.
+It uses the built-in mtcars dataset to explore the relationship
+between vehicle weight and fuel economy.
+
+# 2. Load the Data
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+data(mtcars)
+head(mtcars)
+```
+
+# 3. Explore the Dataset
+
+```{r}
+dim(mtcars)
+summary(mtcars)
+```
+
+The dataset contains information about different cars,
+including fuel economy, weight, horsepower, and cylinder count.
+
+# 4. Data Analysis
+
+Calculate the average fuel economy and average vehicle weight.
+
+```{r}
+mean_mpg <- mean(mtcars$mpg)
+mean_weight <- mean(mtcars$wt)
+
+mean_mpg
+mean_weight
+```
+
+Calculate the correlation between vehicle weight and fuel economy.
+
+```{r}
+cor(mtcars$wt, mtcars$mpg)
+```
+
+# 5. Visualization
+
+```{r}
+plot(
+  mtcars$wt,
+  mtcars$mpg,
+  main = "Vehicle Weight vs Fuel Economy",
+  xlab = "Weight (1000 lbs)",
+  ylab = "Miles per Gallon",
+  pch = 19
+)
+
+abline(lm(mpg ~ wt, data = mtcars), lwd = 2)
+```
+
+# 6. Results and Discussion
+
+The correlation and scatter plot help examine the relationship
+between vehicle weight and fuel economy. A negative correlation
+indicates that heavier vehicles tend to have lower fuel economy
+in this dataset.
+
+The results are reproducible because the analysis uses a
+specified dataset and executable R code.
+
+# 7. Conclusion
+
+This example demonstrates data loading, summary statistics,
+correlation analysis, and visualization using R Markdown.
